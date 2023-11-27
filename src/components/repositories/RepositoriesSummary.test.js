@@ -1,9 +1,9 @@
-import { screen, render } from '@testing-library/react';
-import RepositoriesSummary from './RepositoriesSummary';
+import { screen, render } from "@testing-library/react";
+import RepositoriesSummary from "./RepositoriesSummary";
 
-test('displays information about the repository', () => {
+test("displays information about the repository", () => {
   const repository = {
-    language: 'JavaScript',
+    language: "JavaScript",
     stargazers_count: 5,
     forks: 30,
     open_issues: 1,
