@@ -1,9 +1,9 @@
-import { setupServer } from 'msw/node';
-import { rest } from 'msw';
+import { setupServer } from "msw/node";
+import { rest, HttpResponse } from "msw";
 
 export function createServer(handlerConfig) {
   const handlers = handlerConfig.map((config) => {
-    return rest[config.method || 'get'](config.path, (req, res, ctx) => {
+    return rest[config.method || "get"](config.path, (req, res, ctx) => {
       return res(ctx.json(config.res(req, res, ctx)));
     });
   });
@@ -22,3 +22,11 @@ export function createServer(handlerConfig) {
     server.close();
   });
 }
+
+// const handler = [
+//   rest.get("api/repositories", (req, res, ctx) => {
+//     const query = req.url.searchParams.get("q");
+//     console.log("query", query);
+//     return HttpResponse.json({ name: res });
+//   }),
+// ];
